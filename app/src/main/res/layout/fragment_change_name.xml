@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/settingsInputName"
+        android:id="@+id/settings_input_name"
         style="@style/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/settingsInputSurname"
+        android:id="@+id/settings_input_surname"
         style="@style/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +27,6 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingsInputName" />
+        app:layout_constraintTop_toBottomOf="@id/settings_input_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,13 @@
 package com.android.dan.telegram.ui.fragments
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.android.dan.telegram.R
 import com.android.dan.telegram.activities.RegisterActivity
 import com.android.dan.telegram.utilits.*
-import com.google.firebase.storage.StorageReference
-import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
@@ -27,15 +23,15 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     }
 
     private fun initFields() {
-        settingsBio.text = USER.bio
-        settingsFullName.text = USER.fullname
-        settingsPhoneNumber.text = USER.phone
-        settingsStatus.text = USER.state
-        settingsUsername.text = USER.username
-        settingsBtnChangeUsername.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
-        settingsBtnChangeBio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
-        settingsChangePhoto.setOnClickListener { changePhotoUser() }
-        settingsUserPhoto.downloadAndSetImage(USER.photoUrl)
+        settings_bio.text = USER.bio
+        settings_full_name.text = USER.fullname
+        settings_phone_number.text = USER.phone
+        settings_status.text = USER.state
+        settings_username.text = USER.username
+        settings_btn_change_username.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
+        settings_btn_change_bio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
+        settings_change_photo.setOnClickListener { changePhotoUser() }
+        settings_user_photo.downloadAndSetImage(USER.photoUrl)
     }
 
     private fun changePhotoUser() {
@@ -54,6 +50,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settingsMenuExit -> {
+                AppStates.updateState(AppStates.OFFLINE)
                 AUTH.signOut()
                 APP_ACTIVITY.replaceActivity(RegisterActivity())
             }
@@ -73,7 +70,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             putImageToStorage(uri, path) {
                 getUrlFromStorage(path) {
                     putUrlToDatabase(it) {
-                        settingsUserPhoto.downloadAndSetImage(it)
+                        settings_user_photo.downloadAndSetImage(it)
                         showToast(getString(R.string.toast_data_update))
                         USER.photoUrl = it
                         APP_ACTIVITY.mAppDrawer.updateHeader()

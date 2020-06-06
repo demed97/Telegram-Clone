@@ -12,12 +12,12 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
 
     override fun onResume() {
         super.onResume()
-        settingsInputUsername.setText(USER.username)
+        settings_input_username.setText(USER.username)
     }
 
 
     override fun change() {
-        mNewUsername = settingsInputUsername.text.toString().toLowerCase(Locale.getDefault())
+        mNewUsername = settings_input_username.text.toString().toLowerCase(Locale.getDefault())
         if(mNewUsername.isEmpty()){
             showToast("The field is empty")
         }else{

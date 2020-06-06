@@ -7,7 +7,7 @@
     tools:context=".ui.fragments.EnterCodeFragment">
 
     <ImageView
-        android:id="@+id/registerImageView"
+        android:id="@+id/register_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/vertical_large_margin"
@@ -18,7 +18,7 @@
         android:contentDescription="@string/cd_registerimageview" />
 
     <TextView
-        android:id="@+id/registerTextEnterCode"
+        android:id="@+id/register_text_enter_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -26,31 +26,31 @@
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/normal_text"
         android:textStyle="bold"
-        android:layout_margin="@dimen/vertical_margin"
+        android:layout_margin="@dimen/app_small_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/register_image_view" />
 
     <TextView
-        android:id="@+id/registerTextWeSend"
+        android:id="@+id/register_text_we_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/small_text"
         android:text="@string/register_text_we_send"
-        app:layout_constraintTop_toBottomOf="@+id/registerTextEnterCode"
-        android:layout_margin="@dimen/vertical_margin"
+        app:layout_constraintTop_toBottomOf="@+id/register_text_enter_code"
+        android:layout_margin="@dimen/app_small_margin"
         android:gravity="center"/>
 
 
     <EditText
-        android:id="@+id/registerInputCode"
+        android:id="@+id/register_input_code"
         android:maxLength="6"
         android:layout_width="wrap_content"
         android:gravity="center"
         android:hint="@string/register_hint_default_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTextWeSend"
+        app:layout_constraintTop_toBottomOf="@+id/register_text_we_send"
         style="@style/editText"
         android:autofillHints="" />
 

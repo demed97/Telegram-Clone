@@ -10,7 +10,6 @@ import com.android.dan.telegram.utilits.replaceActivity
 import com.android.dan.telegram.utilits.replaceFragment
 import com.android.dan.telegram.utilits.showToast
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
@@ -42,11 +41,11 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 replaceFragment(EnterCodeFragment(mPhoneNumber,id))
             }
         }
-        registerBtnNext.setOnClickListener { sendCode() }
+        register_btn_next.setOnClickListener { sendCode() }
     }
 
     private fun sendCode() {
-        if (registerInputPhoneNumber.text.toString().isEmpty()) {
+        if (register_input_phone_number.text.toString().isEmpty()) {
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
             authUser()
@@ -55,7 +54,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     private fun authUser() {
-        mPhoneNumber = registerInputPhoneNumber.text.toString()
+        mPhoneNumber = register_input_phone_number.text.toString()
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             mPhoneNumber,
             60,
